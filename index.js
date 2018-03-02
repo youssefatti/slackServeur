@@ -7,7 +7,7 @@ var io = require("socket.io")(server);
 const messages = [];
 
 app.get("/", function(req, res) {
-  res.send("<html><body><h2>Welcome to Slack</h2></body></html>");
+  res.send("<html><body><h3>Welcome to Slack</h3></body></html>");
 });
 
 app.get("/about", function(req, res) {
