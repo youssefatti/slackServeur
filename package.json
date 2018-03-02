@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "nodemon slackServeur.js",
-    "start": "node slackServeur.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -1,0 +1,29 @@
+var express = require("express");
+var app = express();
+
+var server = require("http").createServer(app);
+var io = require("socket.io")(server);
+
+const messages = [];
+
+app.get("/", function(req, res) {
+  res.send();
+});
+
+io.on("connection", function(socket) {
+  console.log("Someone is connected");
+  //console.log(socket);
+  socket.on("new_message", data => {
+    console.log("reception de message : ", data);
+
+    messages.push(data.message);
+
+    socket.message = messages;
+    io.emit("send_message", socket.message);
+    console.log("message qui sera transmit : ", socket.message);
+  });
+});
+
+// d'autres écouteurs peuvent être créés ici `client.on(...);`
+
+server.listen(3000, () => console.log(`Listening on port`));
