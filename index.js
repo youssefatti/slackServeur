@@ -10,6 +10,10 @@ app.get("/", function(req, res) {
   res.send();
 });
 
+app.get("/about", function(req, res) {
+  res.send("<html><body><h1>About page</h1></body></html>");
+});
+
 io.on("connection", function(socket) {
   console.log("Someone is connected");
   //console.log(socket);
